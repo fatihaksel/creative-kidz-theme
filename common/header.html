@@ -1,72 +1,5 @@
-<script type="text/discourse-plugin" version="0.8.20">
-  const customHeaderLinks = settings.Custom_header_links;
-  const linksPosition = (settings.links_position === "right") ? "header-buttons:before" : "home-logo:after";
-
-  if (!customHeaderLinks.length) return;
-
-  const h = require("virtual-dom").h;
-  const headerLinks = [];
-
-  customHeaderLinks.split("|").map(i => {
-    const seg = $.map(i.split(","), $.trim);
-    const linkText = seg[0];
-    const linkTitle = seg[1];
-    const linkHref = seg[2];
-    const deviceClass = `.${seg[3]}`;
-    const linkTarget = seg[4] === "self" ? "" : "_blank";
-    const keepOnScrollClass = seg[5] === "keep" ? ".keep" : "";
-    const linkClass = `.${linkText.trim().toLowerCase().replace(/\s/gi, '-')}`;
-
-    if (!linkTarget) {
-      headerLinks.push(
-        h(
-          `li.headerLink${deviceClass}${keepOnScrollClass}${linkClass}`,
-          h(
-            "a",
-            {
-              title: linkTitle,
-              href: linkHref
-            },
-            linkText
-          )
-        )
-      );
-    } else {
-      headerLinks.push(
-        h(
-          `li.headerLink${deviceClass}${keepOnScrollClass}${linkClass}`,
-          h(
-            "a",
-            {
-              title: linkTitle,
-              href: linkHref,
-              target: linkTarget
-            },
-            linkText
-          )
-        )
-      );
-    }
-  });
-
-  api.decorateWidget(linksPosition, helper => {
-    return helper.h(
-      "ul.custom-header-links", headerLinks
-    );
-  });
-
-  api.decorateWidget("home-logo:after", helper => {
-    let titleVisible = helper.attrs.minimized;
-    if (titleVisible) {
-      $(".d-header").addClass("hide-menus");
-    } else {
-      $(".d-header").removeClass("hide-menus");
-    }
-  });
-</script>
-
 <script>
-  // Colcade.js
+// Colcade.js
 // Author: David DeSandro
 // Github: https://github.com/desandro/colcade
 // license: MIT - https://desandro.mit-license.org/
@@ -74,7 +7,7 @@
 </script>
 
 <script type="text/discourse-plugin" version="0.8.18">
-  const iconHTML = require("discourse-common/lib/icon-library").iconHTML,
+const iconHTML = require("discourse-common/lib/icon-library").iconHTML,
   tiles_selector = '.cooked div[data-theme-tiles="1"]',
   mobileView = $("html.mobile-view").length,
   padding = 6; // padding between tiles
