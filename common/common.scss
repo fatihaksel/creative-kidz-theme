@@ -1,107 +1,160 @@
-@import "common/foundation/variables";
+/*-------------------------------------------------
+   VARIABLES: choose the colors of your banner
+-------------------------------------------------*/
 
-$tiles-padding: 3px !default;
+$main-color: #FF6C00;
+$background-color: #FBDE9C;
 
-// Tiles Grid
-//------------------------------------------
-.tiles-initialized {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+/*-------------------------------------------------
+   SECTION:  BOXES
+-------------------------------------------------*/
 
-  .tiles-col {
-    min-width: calc(100% / 3);
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
-
-  .tiles-col--3 {
-    display: none;
-  }
-
-  @media (min-width: 775px) {
-    .tiles-col--3 {
-      display: block;
+.section-header {
+    padding-bottom: 20px;
+    h2 {
+        margin-bottom: 20px;
     }
-  }
+}
 
-  .lightbox-wrapper,
-  > img {
-    display: block;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: $tiles-padding;
-  }
+.banner-box {
+    margin-bottom: 20px;
+    background-image: url("https://i.imgur.com/k7SnZth.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $background-color; /* to be sure that even if the image above will not be loaded there will be at least a colored background */
+}
 
-  .lightbox {
+.x-title {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    text-align: center;
+    color: $main-color;
+}
+
+.description p {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+}
+
+.banner-box .single-box {
+    padding-bottom: 20px;
+        .x-icon {
+        font-size: 70px;
+    }
+}
+
+//COLUMNS MANAGEMENT
+
+.col3 {
+    width: 30%;
+    float: left;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .tiles-zoom {
-      transition: opacity 0.5s ease-in-out;
-      opacity: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      z-index: 1;
-      flex: 1;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        color: $primary-low;
-        height: 1.5em;
-        width: 1.5em;
-      }
-    }
-
-    &:hover .tiles-zoom {
-      opacity: 1;
-      background: rgba(0, 0, 0, 0.75);
-    }
-
-    .meta {
-      display: none;
-    }
-    > img {
-      max-width: 100%;
-      width: 100%;
-      max-height: unset;
-      height: auto;
-      transition: all 1s ease;
-      z-index: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-
-  p:empty,
-  br,
-  > img {
-    display: none;
-  }
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-#reply-control div[data-theme-tiles="1"] > p {
-  border-left: 4px solid $tertiary;
-  padding-left: 2px;
-  margin-top: 2em;
-
-  > img:not(.thumbnail) {
-    width: auto;
-    max-height: 110px;
-    margin: 2px;
-  }
+.col2 {
+    width: 45%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.bio-composer .TilesGallery {
-  display: none;
+.col4 {
+    width: 22.5%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container::after, .row::after {
+    clear: both;
+}
+
+.col2, .col3, .col4 {
+    text-align: center;
+}
+
+.row::after {
+    content: " ";
+    display: table;
+}
+
+//ICON AND BOX HEADING COLOR
+
+.banner-box .single-box .x-icon, .single-box h3 {
+    color: $main-color;
+}
+
+//BOX HEADING POSITIONING
+
+.banner-box .single-box h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+//COLORED LINE
+
+.colored-line {
+    margin: auto;
+    width: 165px;
+    height: 1px;
+    background: $main-color;
+}
+
+//SINGLE BOX, TEXT ALIGNMENT
+
+.box p {
+    text-align: center;
+}
+
+//TEXT ALIGNMENT INSIDE BUTTONS
+
+#my-button {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+//IMAGE SIZE AS ICON SIZE
+
+.responsive-img {
+    border-style: none;
+    border-width: 1px;
+    height: 70px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+//LIST ALIGNMENT
+
+.feature-list {
+    text-align: left;
+    list-style-type: none;
+}
+
+//BUTTON BACKGROUND
+
+.col2, .col3, .col4 {
+    .btn.btn-icon-text.ember-view {
+        background: $main-color;
+    }
+}
+
+//CLOSE BUTTON ON THE TOP RIGHT
+.banner-box .close {
+    border: none;
+    background: transparent;
+    padding-top: 5px;
+    float: right;
 }
