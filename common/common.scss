@@ -14,29 +14,32 @@ $background-color: #FFFFFF;
   }
 }
 
-// .banner-box {
-//   margin-bottom: 20px;
-//   background-image: url("https://raw.githubusercontent.com/fatihaksel/creativekidz.club/master/design/background-box.jpg");
-//   background-size: cover;
-//   background-position: center center;
-//   background-repeat: no-repeat;
-//   background-color: $background-color;
-//   /* to be sure that even if the image above will not be loaded there will be at least a colored background */
-// }
-
 .banner-box {
   margin-bottom: 20px;
-}
-
-.banner-box::before {
   background-image: url("https://raw.githubusercontent.com/fatihaksel/creativekidz.club/master/design/background-box.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: $background-color;
   /* to be sure that even if the image above will not be loaded there will be at least a colored background */
-  z-index: -1;
-  opacity: 0.75;
+}
+
+.blurred-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  background: inherit;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.blurred-box:after {
+  content: '';
+  background: inherit;
+  position: absolute;
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+  filter: blur(10px);
 }
 
 .x-title {
@@ -62,6 +65,7 @@ $background-color: #FFFFFF;
   }
 }
 //COLUMNS MANAGEMENT
+
 .col3 {
   width: 30%;
   float: left;
@@ -105,16 +109,19 @@ $background-color: #FFFFFF;
   display: table;
 }
 //ICON AND BOX HEADING COLOR
+
 .banner-box .single-box .x-icon,
 .single-box h3 {
   color: $main-color;
 }
 //BOX HEADING POSITIONING
+
 .banner-box .single-box h3 {
   margin-top: 20px;
   text-align: center;
 }
 //COLORED LINE
+
 .colored-line {
   margin: auto;
   width: 165px;
@@ -122,15 +129,18 @@ $background-color: #FFFFFF;
   background: $main-color;
 }
 //SINGLE BOX, TEXT ALIGNMENT
+
 .box p {
   text-align: center;
 }
 //TEXT ALIGNMENT INSIDE BUTTONS
+
 #my-button {
   text-align: center;
   padding-bottom: 5px;
 }
 //IMAGE SIZE AS ICON SIZE
+
 .responsive-img {
   border-style: none;
   border-width: 1px;
@@ -141,11 +151,13 @@ $background-color: #FFFFFF;
   background-attachment: fixed;
 }
 //LIST ALIGNMENT
+
 .feature-list {
   text-align: left;
   list-style-type: none;
 }
 //BUTTON BACKGROUND
+
 .col2,
 .col3,
 .col4 {
@@ -154,6 +166,7 @@ $background-color: #FFFFFF;
   }
 }
 //CLOSE BUTTON ON THE TOP RIGHT
+
 .banner-box .close {
   border: none;
   background: transparent;
