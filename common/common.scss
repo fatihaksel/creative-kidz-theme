@@ -25,12 +25,10 @@ $background-color: #FFFFFF;
 // }
 
 .banner-box {
-  position: relative;
-  z-index: 1;
+  margin-bottom: 20px;
 }
 
 .banner-box::before {
-  margin-bottom: 20px;
   background-image: url("https://raw.githubusercontent.com/fatihaksel/creativekidz.club/master/design/background-box.jpg");
   background-size: cover;
   background-position: center center;
